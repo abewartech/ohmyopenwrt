@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OhMyOpenWrt — Panduan & Produk Digital OpenWRT Bahasa Indonesia</title>
+<meta name="description" content="OhMyOpenWrt: panduan OpenWRT berbahasa Indonesia + produk digital siap pakai — config router, VPN, load balance, hotspot voucher, dan e-book tutorial.">
+<link rel="canonical" href="https://ohmyopenwrt.my.id/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhMyOpenWrt — Panduan & Produk Digital OpenWRT">
+<meta property="og:description" content="Tutorial OpenWRT gratis + config siap pakai: rumahan, gaming, VPN, load balance 2 ISP, hotspot voucher.">
+<meta property="og:url" content="https://ohmyopenwrt.my.id/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="styles.css">
+</head>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","name":"OhMyOpenWrt","url":"https://ohmyopenwrt.my.id/","sameAs":["https://shopee.co.id/rahmadalhabib","https://www.tokopedia.com/wartech89"]},
+{"@type":"WebSite","name":"OhMyOpenWrt","url":"https://ohmyopenwrt.my.id/","inLanguage":"id"},
+{"@type":"ItemList","name":"Produk Digital OpenWRT","itemListElement":[
+{"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Paket Config OpenWRT Rumahan","offers":{"@type":"Offer","price":"49000","priceCurrency":"IDR"}}},
+{"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Config WireGuard VPN Siap Pakai","offers":{"@type":"Offer","price":"39000","priceCurrency":"IDR"}}},
+{"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Config Load Balance 2 ISP","offers":{"@type":"Offer","price":"59000","priceCurrency":"IDR"}}},
+{"@type":"ListItem","position":4,"item":{"@type":"Product","name":"Paket Config Gaming Low-Latency","offers":{"@type":"Offer","price":"49000","priceCurrency":"IDR"}}},
+{"@type":"ListItem","position":5,"item":{"@type":"Product","name":"E-book + Video Tutorial OpenWRT","offers":{"@type":"Offer","price":"79000","priceCurrency":"IDR"}}},
+{"@type":"ListItem","position":6,"item":{"@type":"Product","name":"Config Hotspot Voucher RT/RW-net","offers":{"@type":"Offer","price":"69000","priceCurrency":"IDR"}}}]}]}
+</script>
+<body>
+<header class="site-header"><nav class="nav">
+<a class="brand" href="#top">OhMyOpenWrt</a>
+<button class="nav-toggle" aria-label="Buka menu">☰</button>
+<div class="nav-links">
+<a href="#tutorial">Tutorial</a><a href="#produk">Produk</a><a href="#faq">FAQ</a><a href="#kontak">Kontak</a>
+</div></nav></header>
+<main id="top">
+<section class="hero">
+<h1>OhMyOpenWrt</h1>
+<p class="tagline">Panduan OpenWRT berbahasa Indonesia + produk digital siap pakai: config router, VPN, load balance, hotspot voucher, dan e-book tutorial.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#produk">Lihat Produk</a>
+<a class="btn btn-ghost" href="#tutorial">Tutorial Gratis</a>
+</div>
+<p class="hero-stores">Jualan resmi di:
+<a href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Shopee</a> ·
+<a href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Tokopedia</a></p>
+</section>
+<section id="tutorial" class="section">
+<h2>Tutorial Gratis</h2>
+<p class="section-sub">Mulai dari sini kalau kamu baru kenal OpenWRT.</p>
+<article class="tutorial">
+<h3>1. Apa itu OpenWRT &amp; kenapa pakai</h3>
+<p>OpenWRT adalah firmware pengganti berbasis Linux untuk router. Firmware bawaan router biasanya dikunci fiturnya dan jarang diupdate; OpenWRT membuka semuanya: QoS, VPN, adblock level router, VLAN, hotspot voucher, sampai monitoring trafik — semua dari satu dashboard web (LuCI).</p>
+<p>Kenapa worth it? Kontrol penuh, keamanan lewat update rutin, dan performa.</p>
+<ol>
+<li>Cek dukungan router di Table of Hardware.</li>
+<li>Unduh firmware sesuai model dan revisi hardware persis.</li>
+<li>Siapkan kabel LAN, jangan flashing via WiFi.</li>
+</ol>
+</article>
+<article class="tutorial">
+<h3>2. Cara install OpenWRT di router</h3>
+<p>Instalasi umumnya lewat halaman update firmware bawaan router: upload file BIN OpenWRT, tunggu 3-5 menit, router reboot sendiri.</p>
+<p class="warning"><strong>Risiko brick:</strong> flashing yang salah bisa membuat router tidak bisa boot. Unduh firmware untuk model yang tepat dan jangan cabut kabel saat proses berjalan.</p>
+<ol>
+<li>Backup konfigurasi firmware bawaan.</li>
+<li>Hubungkan PC ke router via kabel LAN.</li>
+<li>Upload firmware OpenWRT lewat menu update, tunggu reboot.</li>
+<li>Akses 192.168.1.1, selamat datang di LuCI.</li>
+</ol>
+</article>
+<article class="tutorial">
+<h3>3. Konfigurasi dasar setelah install</h3>
+<p>Langkah pertama: amankan router. Ganti password root, atur koneksi WAN sesuai ISP (DHCP/PPPoE/statik), lalu nyalakan WiFi dengan enkripsi WPA2/WPA3.</p>
+<ol>
+<li>Login ke 192.168.1.1, buka System Administration, set password root yang kuat.</li>
+<li>Buka Network Interfaces, edit WAN sesuai tipe koneksi ISP-mu.</li>
+<li>Buka Network Wireless, enable radio, isi SSID dan password WiFi.</li>
+<li>Simpan dan Apply, lalu tes koneksi dari HP/laptop.</li>
+</ol>
+</article>
+<article class="tutorial">
+<h3>4. Pasang AdBlock dan SQM/QoS</h3>
+<p><strong>AdBlock</strong> memblokir iklan di level router. <strong>SQM</strong> menjaga latency tetap rendah saat bandwidth penuh, musuh utama lag saat main game atau video call.</p>
+<ol>
+<li>Buka System Software, update lists, install luci-app-adblock dan luci-app-sqm.</li>
+<li>Aktifkan AdBlock di Services AdBlock, enable dan start.</li>
+<li>Buka Network SQM QoS: centang Enable, isi kecepatan 90-95 persen dari kecepatan riil, pilih cake.</li>
+<li>Tes speedtest sambil ping, latency harus stabil meski bandwidth penuh.</li>
+</ol>
+</article>
+<article class="tutorial">
+<h3>5. Backup dan restore konfigurasi</h3>
+<p>Sebelum oprek lebih jauh, selalu backup. Satu file arsip berisi seluruh konfigurasi, restore dalam semenit kalau ada yang salah.</p>
+<ol>
+<li>Buka System Backup Flash Firmware.</li>
+<li>Klik Generate archive, simpan file arsip di tempat aman.</li>
+<li>Untuk restore: upload arsip di halaman yang sama, lalu reboot.</li>
+</ol>
+</article>
+</section>
+<section id="produk" class="section">
+<h2>Produk Digital</h2>
+<p class="section-sub">Config siap import + panduan PDF. Setelah checkout, file dikirim via chat toko. <em>Pilih produk yang sesuai di etalase toko.</em></p>
+<div class="product-grid">
+<div class="card">
+<h3>Paket Config OpenWRT Rumahan</h3>
+<p>WiFi + AdBlock + QoS siap import. Tinggal restore, internet rumah langsung rapi.</p>
+<div class="price">Rp49.000</div>
+<div class="buy">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Beli di Shopee</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Beli di Tokopedia</a>
+</div>
+<small class="note">Pilih produk yang sesuai di etalase toko.</small>
+</div>
+<div class="card">
+<h3>Config WireGuard VPN Siap Pakai</h3>
+<p>Template server dan client WireGuard untuk akses aman dari mana saja.</p>
+<div class="price">Rp39.000</div>
+<div class="buy">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Beli di Shopee</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Beli di Tokopedia</a>
+</div>
+<small class="note">Pilih produk yang sesuai di etalase toko.</small>
+</div>
+<div class="card">
+<h3>Config Load Balance 2 ISP (mwan3)</h3>
+<p>Gabungkan 2 koneksi ISP dengan mwan3: failover otomatis + pembagian beban.</p>
+<div class="price">Rp59.000</div>
+<div class="buy">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Beli di Shopee</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Beli di Tokopedia</a>
+</div>
+<small class="note">Pilih produk yang sesuai di etalase toko.</small>
+</div>
+<div class="card">
+<h3>Paket Config Gaming Low-Latency</h3>
+<p>SQM + prioritas trafik game biar ping stabil saat mabar.</p>
+<div class="price">Rp49.000</div>
+<div class="buy">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Beli di Shopee</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Beli di Tokopedia</a>
+</div>
+<small class="note">Pilih produk yang sesuai di etalase toko.</small>
+</div>
+<div class="card featured">
+<h3>E-book + Video: OpenWRT dari Nol sampai Mahir</h3>
+<p>Panduan lengkap berbahasa Indonesia: install, konfigurasi, VPN, QoS, hotspot.</p>
+<div class="price">Rp79.000</div>
+<div class="buy">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Beli di Shopee</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Beli di Tokopedia</a>
+</div>
+<small class="note">Pilih produk yang sesuai di etalase toko.</small>
+</div>
+<div class="card">
+<h3>Config Hotspot Voucher (RT/RW-net)</h3>
+<p>Sistem voucher siap jualan: captive portal, limit bandwidth, masa aktif per voucher.</p>
+<div class="price">Rp69.000</div>
+<div class="buy">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Beli di Shopee</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Beli di Tokopedia</a>
+</div>
+<small class="note">Pilih produk yang sesuai di etalase toko.</small>
+</div>
+</div>
+</section>
+<section id="faq" class="section">
+<h2>FAQ</h2>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-q">Apakah config cocok untuk semua router?</button>
+<div class="faq-a"><p>Config dibuat untuk OpenWRT versi stabil terbaru dan cocok untuk kebanyakan router yang didukung OpenWRT. Kami bantu penyesuaian via chat toko bila perlu.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Bagaimana cara menerima file setelah membeli?</button>
+<div class="faq-a"><p>Setelah pembayaran terverifikasi, file dikirim via chat Shopee/Tokopedia dalam bentuk ZIP berisi file backup config + panduan PDF.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Apakah ada garansi atau bantuan instalasi?</button>
+<div class="faq-a"><p>Ya. Setiap pembelian mendapat garansi file 7 hari dan bantuan instalasi via chat toko sampai config berjalan.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Saya masih awam soal jaringan, bisa pakai?</button>
+<div class="faq-a"><p>Bisa. Setiap paket dilengkapi panduan restore langkah-demi-langkah.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Apakah config ini legal?</button>
+<div class="faq-a"><p>Ya, OpenWRT berlisensi GPL.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Router apa yang disarankan?</button>
+<div class="faq-a"><p>RAM minimal 128MB.</p></div>
+</div>
+</div>
+</section>
+<section id="kontak" class="section">
+<h2>Kontak</h2>
+<p>Ada pertanyaan sebelum beli? Chat kami langsung di toko:</p>
+<div class="hero-cta">
+<a class="btn btn-shopee" href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Shopee: rahmadalhabib</a>
+<a class="btn btn-tokped" href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Tokopedia: wartech89</a>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<p>© 2026 OhMyOpenWrt — ohmyopenwrt.my.id</p>
+<p><a href="https://shopee.co.id/rahmadalhabib" target="_blank" rel="noopener">Shopee</a> · <a href="https://www.tokopedia.com/wartech89" target="_blank" rel="noopener">Tokopedia</a></p>
+<p class="disclaimer">Situs ini tidak berafiliasi dengan proyek OpenWRT.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

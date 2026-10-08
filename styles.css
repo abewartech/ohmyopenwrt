@@ -1,0 +1,87 @@
+:root{
+  --bg:#0b0f14; --bg2:#11161d; --card:#151c26;
+  --text:#e8edf3; --muted:#9aa7b8;
+  --green:#00c853; --orange:#ff6d00;
+  --shopee:#ee4d2d; --tokped:#03ac0e;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.65}
+a{color:var(--green)}
+.site-header{position:sticky;top:0;z-index:50;
+  background:rgba(11,15,20,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid #1e2632}
+.nav{max-width:1080px;margin:0 auto;padding:.7rem 1rem;
+  display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none}
+.brand::before{content:"◉ ";color:var(--green)}
+.nav-links{display:flex;gap:1.1rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-weight:600}
+.nav-links a:hover{color:var(--green)}
+.nav-toggle{display:none;background:none;border:1px solid #2a3442;
+  color:var(--text);border-radius:8px;padding:.3rem .6rem;font-size:1.1rem}
+main{max-width:1080px;margin:0 auto;padding:0 1rem}
+.hero{text-align:center;padding:4.5rem 1rem 3.5rem;
+  background:radial-gradient(600px 300px at 50% 0%,rgba(0,200,83,.12),transparent)}
+.hero h1{font-size:3rem;margin:.2rem 0;
+  background:linear-gradient(90deg,var(--green),var(--orange));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{color:var(--muted);max-width:640px;margin:0 auto 1.6rem}
+.hero-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.hero-stores{margin-top:1.4rem;color:var(--muted)}
+.btn{display:inline-block;padding:.7rem 1.3rem;border-radius:var(--radius);
+  font-weight:700;text-decoration:none;border:1px solid transparent;
+  transition:transform .12s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#04120a}
+.btn-ghost{border-color:#2a3442;color:var(--text)}
+.btn-shopee{background:var(--shopee);color:#fff}
+.btn-tokped{background:var(--tokped);color:#fff}
+.section{padding:2.8rem 0;border-top:1px solid #1a2230}
+.section h2{font-size:1.7rem;margin-bottom:.3rem}
+.section-sub{color:var(--muted);margin-top:0}
+.tutorial{background:var(--bg2);border:1px solid #1e2632;
+  border-radius:var(--radius);padding:1.4rem;margin:1.2rem 0}
+.tutorial h3{margin-top:0;color:var(--orange)}
+.tutorial code{background:#0b0f14;padding:.1rem .4rem;border-radius:6px;
+  color:var(--green);font-size:.92em}
+.tutorial ol{padding-left:1.3rem}
+.tutorial li{margin:.4rem 0}
+.warning{background:rgba(255,109,0,.1);border:1px solid var(--orange);
+  border-radius:8px;padding:.8rem 1rem}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
+.card{background:var(--card);border:1px solid #1e2632;border-radius:var(--radius);
+  padding:1.3rem;display:flex;flex-direction:column}
+.card.featured{border-color:var(--green)}
+.card h3{margin:.1rem 0 .5rem;font-size:1.05rem}
+.card p{color:var(--muted);font-size:.94rem;flex:1}
+.price{font-size:1.5rem;font-weight:800;color:var(--green);margin:.6rem 0}
+.buy{display:flex;gap:.5rem;flex-wrap:wrap}
+.buy .btn{padding:.55rem .9rem;font-size:.88rem}
+.note{color:var(--muted);font-size:.78rem;margin-top:.6rem}
+.faq-item{border:1px solid #1e2632;border-radius:var(--radius);
+  margin:.7rem 0;background:var(--bg2);overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;color:var(--text);
+  font-size:1rem;font-weight:700;padding:1rem 1.2rem;cursor:pointer}
+.faq-q::after{content:"+";float:right;color:var(--green)}
+.faq-item.open .faq-q::after{content:"–"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-a p{padding:0 1.2rem 1rem;margin:0;color:var(--muted)}
+.site-footer{text-align:center;padding:2.2rem 1rem;color:var(--muted);
+  border-top:1px solid #1a2230;font-size:.9rem}
+.disclaimer{font-size:.78rem;opacity:.7}
+@media(max-width:860px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+  .product-grid{grid-template-columns:1fr}
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--bg2);flex-direction:column;padding:1rem;gap:.8rem;
+    border-bottom:1px solid #1e2632}
+  .nav-links.show{display:flex}
+  .hero h1{font-size:2.2rem}
+  .site-header{position:sticky}
+  .nav{position:relative}
+}
