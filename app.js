@@ -4,15 +4,18 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
     var a = item.querySelector('.faq-a');
+    q.setAttribute('aria-expanded', 'false');
     q.addEventListener('click', function () {
       var isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(function (other) {
         other.classList.remove('open');
         other.querySelector('.faq-a').style.maxHeight = null;
+        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
       });
       if (!isOpen) {
         item.classList.add('open');
         a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
       }
     });
   });
